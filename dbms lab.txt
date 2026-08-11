@@ -1,0 +1,151 @@
+
+SQL*Plus: Release 11.2.0.1.0 Production on Tue Aug 11 03:16:11 2026
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: A020@DB2021
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+Enter user-name: a029@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> CREATE TABLE Course1 (
+  2      Course_ID NUMBER,
+  3      Course_Name VARCHAR(1000),
+  4      Credits NUMBER,
+  5      Department VARCHAR(50)
+  6  );
+CREATE TABLE Course1 (
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE Course6 (
+  2      Course_ID INT PRIMARY KEY,
+  3      Course_Name VARCHAR(100),
+  4      Credits INT,
+  5      Department VARCHAR(50)
+  6  );
+
+Table created.
+
+SQL> DESC COURSE6;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COURSE_ID                                 NOT NULL NUMBER(38)
+ COURSE_NAME                                        VARCHAR2(100)
+ CREDITS                                            NUMBER(38)
+ DEPARTMENT                                         VARCHAR2(50)
+
+SQL> CREATE TABLE STUDENT9 (
+  2      STUDENT_ID NUMBER,
+  3      STUDENT_NAME VARCHAR2(10),
+  4      AGE NUMBER,
+  5      DEPARTMENT VARCHAR2(10)
+  6  );
+
+Table created.
+
+SQL> DESC STUDENT9;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(10)
+ AGE                                                NUMBER
+ DEPARTMENT                                         VARCHAR2(10)
+
+SQL> ALTER TABLE STUDENT9 ADD Email VARCHAR2(10);
+
+Table altered.
+
+SQL> DESC STUDENT9;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(10)
+ AGE                                                NUMBER
+ DEPARTMENT                                         VARCHAR2(10)
+ EMAIL                                              VARCHAR2(10)
+
+SQL> ALTER TABLE STUDENT9 MODIFY STUDENT_ NAME VARCHAR2(10);
+ALTER TABLE STUDENT9 MODIFY STUDENT_ NAME VARCHAR2(10)
+                                          *
+ERROR at line 1:
+ORA-01735: invalid ALTER TABLE option
+
+
+SQL> ALTER TABLE STUDENT9 MODIFY STUDENT_NAME VARCHAR2(10);
+
+Table altered.
+
+SQL> ALTER TABLE STUDENT9 RENAME COLUMN AGE TO STUDENT_AGE;
+
+Table altered.
+
+SQL> ALTER TABLE STUDENT9 MODIFY STUDENT_NAME VARCHAR2(10);
+
+Table altered.
+
+SQL> DESC STUDENT9;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(10)
+ STUDENT_AGE                                        NUMBER
+ DEPARTMENT                                         VARCHAR2(10)
+ EMAIL                                              VARCHAR2(10)
+
+SQL> ALTER TABLE STUDENT9 RENAME COLUMN AGE TO STUDENT_AGE;
+ALTER TABLE STUDENT9 RENAME COLUMN AGE TO STUDENT_AGE
+*
+ERROR at line 1:
+ORA-00957: duplicate column name
+
+
+SQL> ALTER TABLE STUDENT9 RENAME COLUMN STUDENT_AGE TO AGE;
+
+Table altered.
+
+SQL> DESC STUDENT9;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(10)
+ AGE                                                NUMBER
+ DEPARTMENT                                         VARCHAR2(10)
+ EMAIL                                              VARCHAR2(10)
+
+SQL> ALTER TABLE STUDENT9 DROP COLUMN STUDENT_AGE;
+ALTER TABLE STUDENT9 DROP COLUMN STUDENT_AGE
+                                 *
+ERROR at line 1:
+ORA-00904: "STUDENT_AGE": invalid identifier
+
+
+SQL> ALTER TABLE STUDENT9 DROP COLUMN STUDENT_AGE;
+ALTER TABLE STUDENT9 DROP COLUMN STUDENT_AGE
+                                 *
+ERROR at line 1:
+ORA-00904: "STUDENT_AGE": invalid identifier
+
+
+SQL> ALTER TABLE STUDENT9 DROP COLUMN AGE;
+
+Table altered.
+
+SQL> DESC STUDENT9;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(10)
+ DEPARTMENT                                         VARCHAR2(10)
+ EMAIL                                              VARCHAR2(10)
+
+SQL>
