@@ -1,0 +1,503 @@
+
+SQL> CREATE TABLE STUDENT
+  2  (
+  3      STUDENT_ID NUMBER(5) PRIMARY KEY,
+  4      STUDENT_NAME VARCHAR2(30),
+  5      DEPARTMENT VARCHAR2(20)
+  6  );
+CREATE TABLE STUDENT
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE STUDENT9
+  2  (
+  3   STUDENT_ID NUMBER(5) PRIMARY KEY,
+  4   STUDENT_NAME VARCHAR2(30),
+  5   DEPARTMENT VARCHAR2(20),
+  6    MARKS NUMBER(3)
+  7  );
+CREATE TABLE STUDENT9
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE student7 (
+  2      student_id INT PRIMARY KEY,
+  3      name VARCHAR(100),
+  4      age INT,
+  5      class VARCHAR(50),
+  6      email VARCHAR(100)
+  7  );
+
+Table created.
+
+SQL>
+SQL> DESC STUDENT7;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                NOT NULL NUMBER(38)
+ NAME                                               VARCHAR2(100)
+ AGE                                                NUMBER(38)
+ CLASS                                              VARCHAR2(50)
+ EMAIL                                              VARCHAR2(100)
+
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES
+  3  (1, 'Rahul', 18, '12th', 'rahul@example.com'),
+  4  (2, 'Priya', 17, '12th', 'priya@example.com'),
+  5  (3, 'Aman', 18, '12th', 'aman@example.com'),
+  6  (4, 'Neha', 17, '12th', 'neha@example.com'),
+  7  (5, 'Rohit', 18, '12th', 'rohit@example.com'),
+  8  (6, 'Anjali', 17, '12th', 'anjali@example.com'),
+  9  (7, 'Karan', 18, '12th', 'karan@example.com');
+(1, 'Rahul', 18, '12th', 'rahul@example.com'),
+                                             *
+ERROR at line 3:
+ORA-00933: SQL command not properly ended
+
+
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES
+  3  ('Rahul', 18, '12th', 'rahul@example.com'),
+  4  ('Priya', 17, '12th', 'priya@example.com'),
+  5  ('Aman', 18, '12th', 'aman@example.com'),
+  6  ('Neha', 17, '12th', 'neha@example.com'),
+  7  ('Rohit', 18, '12th', 'rohit@example.com'),
+  8  (Anjali', 17, '12th', 'anjali@example.com'),
+  9  ('Karan', 18, '12th', 'karan@example.com');
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES
+  3  (1, 'Rahul', 18, '12th', 'rahul@example.com'),
+  4  (2, 'Priya', 17, '12th', 'priya@example.com'),
+  5  (3, 'Aman', 18, '12th', 'aman@example.com'),
+  6  (4, 'Neha', 17, '12th', 'neha@example.com'),
+  7  (5, 'Rohit', 18, '12th', 'rohit@example.com'),
+  8  (6, 'Anjali', 17, '12th', 'anjali@example.com'),
+  9  (7, 'Karan', 18, '12th', 'karan@example.com');
+(1, 'Rahul', 18, '12th', 'rahul@example.com'),
+                                             *
+ERROR at line 3:
+ORA-00933: SQL command not properly ended
+
+
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES (1, 'Rahul', 18, '12th', 'rahul@example.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES (2, 'Priya', 17, '12th', 'priya@example.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES (3, 'Aman', 18, '12th', 'aman@example.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES (4, 'Neha', 17, '12th', 'neha@example.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES (5, 'Rohit', 18, '12th', 'rohit@example.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES (6, 'Anjali', 17, '12th', 'anjali@example.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO student7 (student_id, name, age, class, email)
+  2  VALUES (7, 'Karan', 18, '12th', 'karan@example.com');
+
+1 row created.
+
+SQL>
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SELECT * FROM STUDENT7;
+
+STUDENT_ID
+----------
+NAME
+--------------------------------------------------------------------------------
+       AGE CLASS
+---------- --------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+         1
+Rahul
+        18 12th
+rahul@example.com
+
+
+STUDENT_ID
+----------
+NAME
+--------------------------------------------------------------------------------
+       AGE CLASS
+---------- --------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+         2
+Priya
+        17 12th
+priya@example.com
+
+
+STUDENT_ID
+----------
+NAME
+--------------------------------------------------------------------------------
+       AGE CLASS
+---------- --------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+         3
+Aman
+        18 12th
+aman@example.com
+
+
+STUDENT_ID
+----------
+NAME
+--------------------------------------------------------------------------------
+       AGE CLASS
+---------- --------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+         4
+Neha
+        17 12th
+neha@example.com
+
+
+STUDENT_ID
+----------
+NAME
+--------------------------------------------------------------------------------
+       AGE CLASS
+---------- --------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+         5
+Rohit
+        18 12th
+rohit@example.com
+
+
+STUDENT_ID
+----------
+NAME
+--------------------------------------------------------------------------------
+       AGE CLASS
+---------- --------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+         6
+Anjali
+        17 12th
+anjali@example.com
+
+
+STUDENT_ID
+----------
+NAME
+--------------------------------------------------------------------------------
+       AGE CLASS
+---------- --------------------------------------------------
+EMAIL
+--------------------------------------------------------------------------------
+         7
+Karan
+        18 12th
+karan@example.com
+
+
+7 rows selected.
+
+SQL> SELECT COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT7;
+
+TOTAL_STUDENTS
+--------------
+             7
+
+SQL>  SELECT SUM(MARKS) AS TOTAL_MARKS
+  2  FROM STUDENT7;
+ SELECT SUM(MARKS) AS TOTAL_MARKS
+            *
+ERROR at line 1:
+ORA-00904: "MARKS": invalid identifier
+
+
+SQL> SELECT SUM(MARKS) AS TOTAL_MARKS
+  2  FROM STUDENT7;
+SELECT SUM(MARKS) AS TOTAL_MARKS
+           *
+ERROR at line 1:
+ORA-00904: "MARKS": invalid identifier
+
+
+SQL> CREATE TABLE STUDENT8
+  2  (
+  3   STUDENT_ID NUMBER(5) PRIMARY KEY,
+  4   STUDENT_NAME VARCHAR2(30),
+  5   DEPARTMENT VARCHAR2(20),
+  6   MARKS NUMBER(3)
+  7  );
+
+Table created.
+
+SQL> DESC STUDENT8;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                NOT NULL NUMBER(5)
+ STUDENT_NAME                                       VARCHAR2(30)
+ DEPARTMENT                                         VARCHAR2(20)
+ MARKS                                              NUMBER(3)
+
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (1, 'Rahul', 'CSE', 85);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (2, 'Priya', 'CSE', 90);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (3, 'Aman', 'ECE', 78);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (4, 'Neha', 'IT', 88);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (5, 'Rohit', 'ME', 92);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (6, 'Anjali', 'CSE', 81);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (7, 'Karan', 'ECE', 95);
+
+1 row created.
+
+SQL>
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SLECT * FROM STUDENT8;
+SP2-0734: unknown command beginning "SLECT * FR..." - rest of line ignored.
+SQL> SELECT * FROM STUDENT8;
+
+STUDENT_ID STUDENT_NAME                   DEPARTMENT                MARKS
+---------- ------------------------------ -------------------- ----------
+         1 Rahul                          CSE                          85
+         2 Priya                          CSE                          90
+         3 Aman                           ECE                          78
+         4 Neha                           IT                           88
+         5 Rohit                          ME                           92
+         6 Anjali                         CSE                          81
+         7 Karan                          ECE                          95
+
+7 rows selected.
+
+SQL> SELECT COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT;
+
+TOTAL_STUDENTS
+--------------
+             0
+
+SQL> SELECT COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT8;
+
+TOTAL_STUDENTS
+--------------
+             7
+
+SQL>
+SQL> SELECT SUM(MARKS) AS TOTAL_MARKS
+  2  FROM STUDENT8;
+
+TOTAL_MARKS
+-----------
+        609
+
+SQL>
+SQL> SELECT AVG(MARKS) AS AVERAGE_MARKS
+  2  FROM STUDENT8;
+
+AVERAGE_MARKS
+-------------
+           87
+
+SQL>
+SQL> SELECT MAX(MARKS) AS HIGHEST_MARK
+  2  FROM STUDENT8;
+
+HIGHEST_MARK
+------------
+          95
+
+SQL> SELECT MIN(MARKS) AS LOWEST_MARK
+  2  FROM STUDENT8;
+
+LOWEST_MARK
+-----------
+         78
+
+SQL> SELECT DEPARTMENT, AVG(MARKS) AS AVG_MARKS
+  2  FROM STUDENT
+  3  GROUP BY DEPARTMENT;
+SELECT DEPARTMENT, AVG(MARKS) AS AVG_MARKS
+                       *
+ERROR at line 1:
+ORA-00904: "MARKS": invalid identifier
+
+
+SQL> SELECT DEPARTMENT, AVG(MARKS) AS AVG_MARKS
+  2  FROM STUDENT
+  3  GROUP BY DEPARTMENT;
+SELECT DEPARTMENT, AVG(MARKS) AS AVG_MARKS
+                       *
+ERROR at line 1:
+ORA-00904: "MARKS": invalid identifier
+
+
+SQL> SELECT DEPARTMENT, AVG(MARKS) AS AVG_MARKS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT;
+
+DEPARTMENT            AVG_MARKS
+-------------------- ----------
+IT                           88
+CSE                  85.3333333
+ME                           92
+ECE                        86.5
+
+SQL>
+SQL> SELECT DEPARTMENT, COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT;
+
+DEPARTMENT           TOTAL_STUDENTS
+-------------------- --------------
+IT                                1
+CSE                               3
+ME                                1
+ECE                               2
+
+SQL>
+SQL> SELECT DEPARTMENT, MAX(MARKS) AS MAX_MARKS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT;
+
+DEPARTMENT            MAX_MARKS
+-------------------- ----------
+IT                           88
+CSE                          90
+ME                           92
+ECE                          95
+
+SQL>
+SQL> SELECT DEPARTMENT, AVG(MARKS) AS AVG_MARKS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT
+  4  HAVING AVG(MARKS) > 85;
+
+DEPARTMENT            AVG_MARKS
+-------------------- ----------
+IT                           88
+CSE                  85.3333333
+ME                           92
+ECE                        86.5
+
+SQL> SELECT DEPARTMENT, COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT
+  4  HAVING COUNT(*) > 1;
+
+DEPARTMENT           TOTAL_STUDENTS
+-------------------- --------------
+CSE                               3
+ECE                               2
+
+SQL> SELECT DEPARTMENT, COUNT(*) AS NO_OF_STUDENTS,
+  2   AVG(MARKS) AS AVG_MARKS, MAX(MARKS) AS HIGHEST_MARK
+  3  FROM STUDENT8
+  4  GROUP BY DEPARTMENT
+  5
+SQL> SELECT DEPARTMENT, COUNT(*) AS NO_OF_STUDENTS,
+  2   AVG(MARKS) AS AVG_MARKS, MAX(MARKS) AS HIGHEST_MARK
+  3  FROM STUDENT
+  4  GROUP BY DEPARTMENT
+  5  HAVING AVG(MARKS) > 80;
+HAVING AVG(MARKS) > 80
+           *
+ERROR at line 5:
+ORA-00904: "MARKS": invalid identifier
+
+
+SQL> SELECT DEPARTMENT, COUNT(*) AS NO_OF_STUDENTS,
+  2   AVG(MARKS) AS AVG_MARKS, MAX(MARKS) AS HIGHEST_MARK
+  3  FROM STUDENT8
+  4  GROUP BY DEPARTMENT
+  5  HAVING AVG(MARKS) > 80;
+
+DEPARTMENT           NO_OF_STUDENTS  AVG_MARKS HIGHEST_MARK
+-------------------- -------------- ---------- ------------
+IT                                1         88           88
+CSE                               3 85.3333333           90
+ME                                1         92           92
+ECE                               2       86.5           95
+
+SQL> SELECT * FROM STUDENT8;
+
+STUDENT_ID STUDENT_NAME                   DEPARTMENT                MARKS
+---------- ------------------------------ -------------------- ----------
+         1 Rahul                          CSE                          85
+         2 Priya                          CSE                          90
+         3 Aman                           ECE                          78
+         4 Neha                           IT                           88
+         5 Rohit                          ME                           92
+         6 Anjali                         CSE                          81
+         7 Karan                          ECE                          95
+
+7 rows selected.
